@@ -1,4 +1,4 @@
-# Задачки по stream api. Есть 2 задачки, на разминку:):
+# Задачки по stream api. Есть 3 задачки, на разминку:):
 * Задача 1:
 Есть коллекция ArrayList, которая хранит в себе объекты класса Student(<HashMap<Subject, Integer> rating, String name>). Необходимо посчитать средний балл по конкретному предмету при помощи Stream API. Коллекцию заполнить самому. 
 ```
@@ -47,6 +47,17 @@ Task task4 = new Task("Write a blog on Java 8 Streams", TaskType.WRITING, LocalD
 Task task5 = new Task("Read Domain Driven Design book", TaskType.READING, LocalDate.of(2015, Month.JULY, 5)).addTag("ddd").addTag("books").addTag("reading");
 
 List<Task> tasks = Arrays.asList(task1, task2, task3, task4, task5);
+```
+* Задача 3:
+Конвертировать Task->TaskDto
+```
+public class Task {
+    private final String id;
+    private final String title;
+    private final TaskType type;
+    private final LocalDate createdOn;
+    private Set<String> tags = new HashSet<>();
+}
 ```
 ### Удачи в решении этих задач. 
 
