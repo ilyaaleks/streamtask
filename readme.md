@@ -49,9 +49,9 @@ Task task5 = new Task("Read Domain Driven Design book", TaskType.READING, LocalD
 List<Task> tasks = Arrays.asList(task1, task2, task3, task4, task5);
 ```
 * Задача 3:
-Конвертировать Task->TaskDto
+Конвертировать из предыдущей задачи Task->TaskDto
 ```
-public class Task {
+public class TaskDto {
     private final String id;
     private final String title;
     private final TaskType type;
