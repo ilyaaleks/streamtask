@@ -1,5 +1,6 @@
 package com.leverx.streamtasks.task3;
 
+import com.leverx.streamtasks.task3.converter.TaskConverter;
 import com.leverx.streamtasks.task3.entities.Task;
 import com.leverx.streamtasks.task3.entities.TaskType;
 import com.leverx.streamtasks.task3.services.TaskService;
@@ -13,6 +14,7 @@ public class Main {
 
   public static void main(String[] args) {
     TaskService taskService = new TaskServiceImpl();
+    TaskConverter converter = new TaskConverter();
 
     Task task1 = new Task("Read Version Control with Git book", TaskType.READING,
         LocalDate.of(2015, Month.JULY, 1)).addTag("git").addTag("reading").addTag("books");
@@ -27,8 +29,9 @@ public class Main {
     List<Task> tasks = Arrays.asList(task1, task2, task3, task4, task5);
 
     List<Task> sortedTasks = taskService.getNFirstSortedTasks(tasks, 5);
-    String allTitles = taskService.mergeTitlesByDelimiter(" , ", sortedTasks);
 
-    System.out.println(allTitles);
+    sortedTasks.stream()
+        .map(task -> converter.convertToTaskDto(task))
+        .forEach(System.out::println);
   }
 }
