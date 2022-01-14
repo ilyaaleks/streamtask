@@ -18,6 +18,7 @@ public class Main {
     Set<String> uniqueSubjects = subjectService.getUniqueSubjects(students);
 
     uniqueSubjects.stream()
-        .forEach(uniqueSubject -> subjectService.getAverageSubjectScore(uniqueSubject, students));
+        .map(uniqueSubject -> subjectService.getAverageSubjectScore(uniqueSubject, students))
+        .forEach(System.out::println);
   }
 }
